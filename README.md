@@ -4,7 +4,7 @@
 
 This project adds a simple DSL to your Rubymotion UIViewControllers to create subviews to be styled with [Pixate](http://www.pixate.com/).
 
-The idea is inspired by [Teacup](https://github.com/rubymotion/teacup), which has an awesome layout/subview DSL for layout out your controllers.  While this DSL is great, Teacup brings in a lot of style/stylesheet features that are not useful to Pixate users.  MotionPixateLayout also adds a convenient shorthand selector to quickly set the styleId and styleClass of subviews.
+The idea is inspired by [Teacup](https://github.com/rubymotion/teacup), which has an awesome layout/subview DSL for laying out your controllers.  While this DSL is great, Teacup brings in a lot of style/stylesheet features that are not useful to Pixate users.  MotionPixateLayout also adds a convenient shorthand selector to quickly set the styleId and styleClass of subviews.
 
 ## A quick example
 
