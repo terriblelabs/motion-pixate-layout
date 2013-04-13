@@ -10,5 +10,7 @@ Motion::Project::App.setup do |app|
   app.name = 'testSuite'
   app.identifier = 'com.terriblelabs.motionPixateLayout.testSuite'
 
-  app.pixate.framework = 'vendor/PXEngine.framework'
+  if File.exist?('vendor/PXEngine.framework')
+    app.pixate.framework = 'vendor/PXEngine.framework'
+  end
 end
