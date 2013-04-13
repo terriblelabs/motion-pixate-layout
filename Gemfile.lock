@@ -1,0 +1,22 @@
+PATH
+  remote: .
+  specs:
+    motion-pixate-layout (0.0.1)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    bacon (1.1.0)
+    motion-pixate (1.2)
+      sass
+    rake (10.0.4)
+    sass (3.2.7)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  bacon
+  motion-pixate
+  motion-pixate-layout!
+  rake
