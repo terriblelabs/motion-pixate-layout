@@ -38,7 +38,7 @@ class MyViewController < UIViewController
   # pixate_layout { ... }
 
   def update_label_text
-    subviews['title-label'] = 'An updated title'
+    subviews['title-label'].text = 'An updated title'
   end
 end
 ````
