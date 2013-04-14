@@ -1,6 +1,7 @@
 # MotionPixateLayout
 
-![Build Status of master branch](https://travis-ci.org/terriblelabs/motion-pixate-layout.png?branch=master)
+[![Build Status](https://travis-ci.org/terriblelabs/motion-pixate-layout.png?branch=master)](https://travis-ci.org/terriblelabs/motion-pixate-layout)
+[![Code Climate](https://codeclimate.com/github/terriblelabs/motion-pixate-layout.png)](https://codeclimate.com/github/terriblelabs/motion-pixate-layout)
 
 This project adds a simple DSL to your Rubymotion UIViewControllers to create subviews to be styled with [Pixate](http://www.pixate.com/).
 
