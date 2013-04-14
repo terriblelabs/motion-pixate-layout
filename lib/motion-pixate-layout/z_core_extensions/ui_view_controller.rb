@@ -3,7 +3,7 @@ class UIViewController
     def pixate_layout(selector='', &block)
       if block_given?
         pixate_layout.selector = MotionPixateLayout::Selector.new(selector)
-        pixate_layout << block
+        pixate_layout.blocks << block
       else
         @_pixate_layout ||= MotionPixateLayout::Layout.new
       end
@@ -23,26 +23,7 @@ class UIViewController
   end
 
   def viewDidLoad
-    if pixate_layout.selector
-      view.styleId = pixate_layout.selector.style_id
-      view.styleClass = pixate_layout.selector.style_classes.join(' ')
-    end
-
-    proxy = MotionPixateLayout::Proxy.new(view)
-
-    pixate_layout.before.each do |block|
-      instance_eval &block
-    end
-
-    pixate_layout.each do |block|
-      proxy.instance_eval &block
-    end
-
-    view.updateStyles
-
-    pixate_layout.after.each do |block|
-      instance_eval &block
-    end
+    MotionPixateLayout::Proxy.new(self).run
   end
 
   def subviews
