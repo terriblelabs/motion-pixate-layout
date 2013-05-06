@@ -27,10 +27,30 @@ class UIViewController
   end
 
   def subviews
-    Hash[
-      view.subviews.select(&:styleId).map do |view|
-        [view.styleId, view]
-      end
-    ].freeze
+    @subviews_hash ||= SubviewHash.new(view)
+  end
+
+  class SubviewHash
+    attr_reader :view
+
+    def initialize(view)
+      @view = view
+    end
+
+    def [](key)
+      hash[key] ||= current_hash[key]
+    end
+
+    private
+
+    def hash
+      @hash ||= current_hash
+    end
+
+    def current_hash
+      Hash[
+        view.subviews.select(&:styleId).map { |view| [view.styleId, view] }
+      ]
+    end
   end
 end
