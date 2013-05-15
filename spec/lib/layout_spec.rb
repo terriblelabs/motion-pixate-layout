@@ -10,6 +10,7 @@ describe "MotionPixateLayout::Layout" do
 
         pixate_layout '#view-id.view-class.view-class-2' do
           UILabel '#style-id.class1.class2', text: 'Test Label'
+          UIView '#subview'
         end
 
         after_pixate_layout do
@@ -32,7 +33,7 @@ describe "MotionPixateLayout::Layout" do
       end
 
       it "adds subviews that are specified in its block" do
-        controller.view.subviews.size.should == 1
+        controller.view.subviews.size.should == 2
       end
 
       it "assigns the styleID from subview selectors" do

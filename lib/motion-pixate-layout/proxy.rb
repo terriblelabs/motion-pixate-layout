@@ -17,7 +17,7 @@ module MotionPixateLayout
     def method_missing(method_name, *args)
       if Kernel.constants.include?(method_name.to_sym)
         view_class = Kernel.const_get(method_name.to_s)
-        raise "#{view_class.name} is not a known UIView subclass" unless view_class < UIView
+        raise "#{view_class.name} is not a known UIView subclass" unless view_class <= UIView
         return subview(view_class, *args)
       else
         raise "#{method_name} is not defined. Should be a subclass of UIView."
