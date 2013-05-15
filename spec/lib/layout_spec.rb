@@ -8,7 +8,7 @@ describe "MotionPixateLayout::Layout" do
           @before_called = true
         end
 
-        pixate_layout '#view-id.view-class.view-class-2' do
+        pixate_layout '#view-id.view-class.view-class-2', accessibilityLabel: 'main view' do
           UILabel '#style-id.class1.class2', text: 'Test Label'
           UIView '#subview'
         end
@@ -22,6 +22,10 @@ describe "MotionPixateLayout::Layout" do
 
       it "is added to UIViewController" do
         UIViewController.should.respond_to :pixate_layout
+      end
+
+      it 'calls mutators for hash parameters' do
+        controller.view.accessibilityLabel.should == 'main view'
       end
 
       it 'sets the style id of its view from the selector' do

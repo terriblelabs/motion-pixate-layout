@@ -1,8 +1,9 @@
 class UIViewController
   class << self
-    def pixate_layout(selector='', &block)
+    def pixate_layout(selector='', attributes={}, &block)
       if block_given?
         pixate_layout.selector = MotionPixateLayout::Selector.new(selector)
+        pixate_layout.view_attributes = attributes
         pixate_layout.blocks << block
       else
         @_pixate_layout ||= MotionPixateLayout::Layout.new

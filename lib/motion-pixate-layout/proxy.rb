@@ -41,6 +41,7 @@ module MotionPixateLayout
 
     def run
       apply_selector
+      apply_attributes
       run_blocks controller, layout.before
       run_blocks self, layout.blocks
       run_blocks controller, layout.after
@@ -51,6 +52,12 @@ module MotionPixateLayout
       if layout.selector
         view.styleId = layout.selector.style_id
         view.styleClass = layout.selector.style_classes.join(' ')
+      end
+    end
+
+    def apply_attributes
+      layout.view_attributes.each do |key, value|
+        view.public_send "#{key}=", value
       end
     end
 
