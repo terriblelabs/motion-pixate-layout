@@ -56,6 +56,7 @@ module MotionPixateLayout
     end
 
     def apply_attributes
+      layout.view_attributes ||= []
       layout.view_attributes.each do |key, value|
         view.public_send "#{key}=", value
       end
