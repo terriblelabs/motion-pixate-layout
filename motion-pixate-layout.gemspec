@@ -2,8 +2,8 @@
 require File.expand_path('../lib/motion-pixate-layout/version', __FILE__)
 
 Gem::Specification.new do |gem|
-  gem.authors       = ["Joe Lind"]
-  gem.email         = ["joe@terriblelabs.com"]
+  gem.authors       = ["Joe Lind", "Nick Pachulski"]
+  gem.email         = ["joe@terriblelabs.com", "hello@nickpachulski.com"]
   gem.description   = "A RubyMotion DSL to add subviews that are styled with Pixate"
   gem.summary   = "A RubyMotion DSL to add subviews that are styled with Pixate"
   gem.homepage = 'http://github.com/terriblelabs/motion-pixate-layout'
