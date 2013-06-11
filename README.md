@@ -14,6 +14,9 @@ class MyViewController < UIViewController
   pixate_layout '#my-view.fancy' do
     UILabel '#title-label.small.green', text: 'My Title'
     UIButton '#ok-button.call-to-action'
+    UIView '#parent' do
+      UILabel '#child'
+    end
   end
 end
 ````
@@ -29,6 +32,7 @@ This code hooks into UIViewController's `viewDidLoad` mode and:
 1. Adds a UIButton with these attributes as a subview of the controller's view:
     * styleId: 'ok-button'
     * styleClass: 'call-to-action'
+1. Adds a UIView with styleId of 'parent' to the controllers view with a child subview with styleId 'child'
 
 ## Accessing subviews
 
