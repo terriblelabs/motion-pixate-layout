@@ -64,8 +64,10 @@ module MotionPixateLayout
         subview.styleId = selector.style_id
         subview.styleClass = selector.style_classes.join(" ")
 
-        attributes.each do |key, value|
-          subview.send "#{key}=", value
+        unless attributes.nil?
+          attributes.each do |key, value|
+            subview.send "#{key}=", value
+          end
         end
 
         view.addSubview subview
@@ -78,11 +80,21 @@ module MotionPixateLayout
       end
     end
 
+    def self.add_subview_method(klass)
+      define_method klass.name do |*args, &block|
+        selector, options, = *args
+        subview klass, selector, options, &block
+      end
+    end
+
+
     def method_missing(method_name, *args, &block)
       if Kernel.constants.include?(method_name.to_sym)
         view_class = Kernel.const_get(method_name.to_s)
         raise "#{view_class.name} is not a known UIView subclass" unless view_class <= UIView
-        return subview(view_class, *args, &block)
+        self.class.add_subview_method(view_class)
+
+        send method_name, *args, &block
       else
         raise "#{method_name} is not defined. Should be a subclass of UIView."
       end

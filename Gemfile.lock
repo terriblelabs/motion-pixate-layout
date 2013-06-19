@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    motion-pixate-layout (0.0.4)
+    motion-pixate-layout (0.0.5)
 
 GEM
   remote: https://rubygems.org/
